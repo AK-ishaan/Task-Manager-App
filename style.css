@@ -139,7 +139,7 @@ main{
     width: auto;
     /* background-color: black; */
     padding: 8px;
-     overflow-wrap: break-word;
+     word-wrap: break-word;
     
 }
 .ticket-delete{
@@ -153,4 +153,103 @@ main{
  display: flex;  
  align-items: center;
  justify-content: center; 
+}
+.creation-popup{
+    height: 20rem;
+    width: 30rem;
+    background-color: azure;
+    overflow: hidden;
+     background:linear-gradient(125.83deg, rgb(139, 249, 88) 0%, rgb(143, 54, 202) 99.09%);
+     border-radius: 5%;
+   display: flexbox;
+   align-items: center;
+   justify-content: center;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+.instruction{
+    height: 3rem;
+    /* border: 1px solid; */
+    width: auto;
+    margin: 5px;
+    color: rgb(48, 46, 46);
+    font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: lighter;
+  font-style: italic;
+  font-size: 10px;
+  padding-left: 10px;
+  background-color:rgb(232, 231, 231);
+  
+border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  
+}
+.creation-area{
+    height: 50%;
+    /* border: 1px solid; */
+    margin: 5px;
+    padding: 2px 2px 2px 10px;
+    color:black;
+    font-weight: 600;
+    background-color:rgb(232, 231, 231);
+    font-family: cursive;
+}
+.priority-colors{
+    display: flex;
+    height: 28%;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    /* border: 1px solid; */
+    margin: 5px;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-evenly;
+    /* padding: 5px; */
+    background-color:rgb(232, 231, 231);
+}
+.low-level , .normal-level, .medium-level, .high-level{
+    /* border: 1px solid; */
+    height: 3rem;
+    width:3rem;
+    border-radius: 50%;
+    color: black;
+    cursor: pointer;
+    
+}
+.low-level{
+    background-color: rgb(92, 211, 92) ; 
+}
+.normal-level{
+    background-color:rgb(254, 254, 90);
+}
+.medium-level{
+   background-color: rgb(255, 81, 81);
+}
+.high-level{
+    background-color:  rgb(53, 53, 53);
+}
+.low-level:hover{
+    background-color: rgb(69, 176, 69) ; 
+}
+.normal-level:hover{
+    background-color:rgb(240, 240, 20);
+}
+.medium-level:hover{
+   background-color: rgb(238, 47, 47);
+}
+.high-level:hover{
+    background-color:  rgb(32, 31, 31);
+}
+.save-btn{
+    padding: 10px;
+
+    border-radius: 15px;
+    border-color: rgb(143, 54, 202);
+    font-family: monospace;
+    font-weight: bold;
+  font-style: italic;
+  background-color: rgb(206, 212, 216);
 }
