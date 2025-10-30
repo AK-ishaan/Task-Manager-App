@@ -78,7 +78,7 @@ h2{
 .add-btn , .remove-btn{
     display: flex;
     align-items: center;
-    background-color: aqua;
+    /* background-color: aqua; */
     gap: 0.5rem;
     padding: 0.75rem 1.5rem;
     justify-content: center;
@@ -108,4 +108,49 @@ main{
     padding: 2rem;
     max-width: 1400px;
     margin: 0 auto;
+}
+.ticket{
+    
+    height: 10rem;
+    width: 20rem;
+    background-color: aliceblue;
+    border-radius: 5%;
+    overflow: hidden;
+    position: relative;
+}
+.ticket-priority-color{
+    height: 1rem;
+    width: auto;
+    background-color: rgb(164, 164, 164);
+}
+.ticket-id{
+    /* border: 1px solid black; */
+    height: 2rem;
+    width: 18rem;
+    padding: 8px;
+    display: flex;
+    align-items: flex-start;
+}
+.ticket-area{
+    display: flex;
+    align-items: flex-start;
+    /* border: 1px solid black; */
+    height: 6rem;
+    width: auto;
+    /* background-color: black; */
+    padding: 8px;
+     overflow-wrap: break-word;
+    
+}
+.ticket-delete{
+    color:rgb(225, 9, 9);
+ position: absolute;
+ top: 16px;
+ right: 0px;
+
+ height:2rem;
+ width: 2.1rem;
+ display: flex;  
+ align-items: center;
+ justify-content: center; 
 }
