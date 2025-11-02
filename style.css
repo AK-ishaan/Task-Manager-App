@@ -55,16 +55,16 @@ h2{
     border-radius: 50%;
     /* background-color: aqua; */
 }
-.green{
+.toolboxgreen{
    background-color: rgb(92, 211, 92) ; 
 }
-.yellow{
+.toolboxyellow{
    background-color: rgb(254, 254, 90);
 }
-.red{
+.toolboxred{
     background-color: rgb(255, 81, 81);
 }
-.black{
+.toolboxblack{
     background-color: rgb(53, 53, 53);
 }
 .action-btn-ctn{
@@ -218,7 +218,7 @@ border-top-left-radius: 15px;
     /* padding: 5px; */
     background-color:rgb(232, 231, 231);
 }
-.low-level , .normal-level, .medium-level, .high-level{
+.green, .yellow, .red, .black{
     /* border: 1px solid; */
     height: 3rem;
     width:3rem;
@@ -228,33 +228,33 @@ border-top-left-radius: 15px;
     
     
 }
-.low-level{
+.green{
     background-color: rgb(92, 211, 92) ; 
 }
-.normal-level{
+.yellow{
     background-color:rgb(254, 254, 90);
 }
-.medium-level{
+.red{
    background-color: rgb(255, 81, 81);
 }
-.high-level{
+.black{
     background-color:  rgb(53, 53, 53);
 }
 
-.low-level:hover{
+.green:hover{
     background-color: rgb(69, 176, 69) ;
     border:2px solid blueviolet;
 
 }
-.normal-level:hover{
+.yellow:hover{
     background-color:rgb(240, 240, 20);
     border:2px solid blueviolet;
 }
-.medium-level:hover{
+.red:hover{
    background-color: rgb(238, 47, 47);
    border:2px solid blueviolet;
 }
-.high-level:hover{
+.black:hover{
     background-color:  rgb(32, 31, 31);
     border:2px solid blueviolet;
 }
