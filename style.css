@@ -130,6 +130,7 @@ main{
     padding: 8px;
     display: flex;
     align-items: flex-start;
+    font-style: italic;
 }
 .ticket-area{
     display: flex;
@@ -139,7 +140,9 @@ main{
     width: auto;
     /* background-color: black; */
     padding: 8px;
-     word-wrap: break-word;
+     font-family: cursive;
+      overflow-wrap: break-word;
+  word-break: break-all;
     
 }
 .ticket-delete{
@@ -161,13 +164,16 @@ main{
     overflow: hidden;
      background:linear-gradient(125.83deg, rgb(139, 249, 88) 0%, rgb(143, 54, 202) 99.09%);
      border-radius: 5%;
-   display: flexbox;
+   display: block;
    align-items: center;
    justify-content: center;
    position: absolute;
    top: 50%;
    left: 50%;
    transform: translate(-50%, -50%);
+   display:none;
+   z-index: 1;
+   
 }
 .instruction{
     height: 3rem;
@@ -196,6 +202,8 @@ border-top-left-radius: 15px;
     font-weight: 600;
     background-color:rgb(232, 231, 231);
     font-family: cursive;
+    word-wrap: break-word;
+    cursor: text;
 }
 .priority-colors{
     display: flex;
@@ -218,6 +226,7 @@ border-top-left-radius: 15px;
     color: black;
     cursor: pointer;
     
+    
 }
 .low-level{
     background-color: rgb(92, 211, 92) ; 
@@ -231,17 +240,23 @@ border-top-left-radius: 15px;
 .high-level{
     background-color:  rgb(53, 53, 53);
 }
+
 .low-level:hover{
-    background-color: rgb(69, 176, 69) ; 
+    background-color: rgb(69, 176, 69) ;
+    border:2px solid blueviolet;
+
 }
 .normal-level:hover{
     background-color:rgb(240, 240, 20);
+    border:2px solid blueviolet;
 }
 .medium-level:hover{
    background-color: rgb(238, 47, 47);
+   border:2px solid blueviolet;
 }
 .high-level:hover{
     background-color:  rgb(32, 31, 31);
+    border:2px solid blueviolet;
 }
 .save-btn{
     padding: 10px;
@@ -252,4 +267,10 @@ border-top-left-radius: 15px;
     font-weight: bold;
   font-style: italic;
   background-color: rgb(206, 212, 216);
+}
+.save-btn:hover{
+   border:3px solid rgb(103, 19, 181); 
+}
+.active{
+    border:3px solid blueviolet;
 }
