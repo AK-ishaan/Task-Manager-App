@@ -274,3 +274,7 @@ border-top-left-radius: 15px;
 .active{
     border:3px solid blueviolet;
 }
+.dltBtn:hover{
+    font-size: large;
+    color: #a20808;
+}
