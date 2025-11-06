@@ -278,3 +278,6 @@ border-top-left-radius: 15px;
     font-size: large;
     color: #a20808;
 }
+.color:hover{
+    border:3px solid blueviolet;
+}

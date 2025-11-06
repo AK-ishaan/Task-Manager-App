@@ -107,3 +107,28 @@ function changePriority(taskcont) {
     priorityCont.style.backgroundColor = colors[currentColorIndex];
   });
 }
+
+//fitering task based on priority
+
+const filterButtons = document.querySelectorAll('.color');
+let activeFilter = null;
+
+filterButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const clickedColor = btn.dataset.color || btn.classList[0].replace('toolbox', '');
+    const tickets = document.querySelectorAll('.ticket');
+
+    if (activeFilter === clickedColor) {
+      tickets.forEach(t => (t.style.display = 'block'));
+      activeFilter = null;
+      return;
+    }
+
+    // Apply new filter
+    activeFilter = clickedColor;
+    tickets.forEach(t => {
+      const ticketColor = t.querySelector('.ticket-priority-color').style.backgroundColor;
+      t.style.display = ticketColor === clickedColor ? 'block' : 'none';
+    });
+  });
+});
