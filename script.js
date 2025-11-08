@@ -2,6 +2,9 @@
 const popup=document.querySelector('.creation-popup');
 let popupFlag =false;
 const addBtn=document.querySelector('.add-btn');
+const ticketarr=JSON.parse(localStorage.getItem("LStickets")) || [];
+let active=false;
+let lsAlert=false;
 
 addBtn.addEventListener('click',function(){
     popupFlag=!popupFlag;
@@ -44,10 +47,13 @@ saveBtn.addEventListener('click',function(){
     tasktext=textbox.innerText;
     //unique key generator using cdnjs
     let key=shortid();
+    active=true;
     ticketCreation(tasktext,key,selectedColor);
     popup.style.display='none';
     popupFlag =false;
+    lsAlert=true;
     textbox.innerText='Enter your Task here...'
+    
 });
 
 
@@ -69,6 +75,14 @@ function ticketCreation(textcont, key, selectedColor) {
   
   main.appendChild(ticketbox);
   
+  //local-Storage ticket creation
+  if(active==true){
+  ticketarr.push({ticketID:key,textcont,ticketPriority:selectedColor});
+  localStorage.setItem("LStickets",JSON.stringify(ticketarr));
+  }
+  // active=false;
+
+  
   //adding changing priority colour feature
   changePriority(ticketbox)
 
@@ -81,32 +95,58 @@ function ticketCreation(textcont, key, selectedColor) {
   priorityLevel.forEach(act => {
     act.classList.remove("active");
   });
+  if(lsAlert=false){
   alert("* Double click on delete icon to delete your task\n* Double click on task top colour to change your priority");
-
+  }
 }
 
-
+//removing the task from DOM and LocalStorage
 function dltTask(taskBlock) {
-  let dlt = taskBlock.querySelector('.dltBtn');
-  dlt.addEventListener('dblclick', function() {
-    
+  const dlt = taskBlock.querySelector('.dltBtn');
+  const clickedticketid = taskBlock.querySelector('.ticket-id').textContent; 
+
+  dlt.addEventListener('dblclick', function () {
+    let ticketlist = JSON.parse(localStorage.getItem("LStickets")) || [];
+    const updatedList = ticketlist.filter(ele => ele.ticketID !== clickedticketid);
+
+    localStorage.setItem("LStickets", JSON.stringify(updatedList));
+
+    // remove the task 
     taskBlock.remove();
   });
 }
+
 
 //feature function for changing task priority
 function changePriority(taskcont) {
   const colors = ['green', 'yellow', 'red', 'black'];
   const priorityCont = taskcont.querySelector('.ticket-priority-color');
+  const ticketId = taskcont.querySelector('.ticket-id').textContent; 
 
   let currentColorIndex = colors.indexOf(priorityCont.style.backgroundColor);
   if (currentColorIndex === -1) currentColorIndex = 0;
 
   priorityCont.addEventListener('dblclick', function() {
+
     currentColorIndex = (currentColorIndex + 1) % colors.length;
-    priorityCont.style.backgroundColor = colors[currentColorIndex];
+    const newColor = colors[currentColorIndex];
+    priorityCont.style.backgroundColor = newColor;
+
+    // Update in localStorage
+    let ticketList = JSON.parse(localStorage.getItem("LStickets")) || [];
+
+    ticketList = ticketList.map(ticket => {
+      if (ticket.ticketID === ticketId) {
+        return { ...ticket, ticketPriority: newColor };
+      }
+      return ticket;
+    });
+
+    // Save back to localStorage
+    localStorage.setItem("LStickets", JSON.stringify(ticketList));
   });
 }
+
 
 //fitering task based on priority
 
@@ -132,3 +172,26 @@ filterButtons.forEach(btn => {
     });
   });
 });
+
+//localStorage.clear();
+
+//On reload using localStoarage
+
+function reload(){
+  if(localStorage.getItem("LStickets")){
+    let LSarr=JSON.parse(localStorage.getItem("LStickets"));
+    LSarr.forEach(t=>{
+      let LScolour=t.ticketPriority;
+      let LStextcont=t.textcont;
+      let LSticketID=t.ticketID;
+      active=false;
+      lsAlert=true;
+      ticketCreation(LStextcont,LSticketID,LScolour);
+      
+      
+    })
+  
+  }
+}
+
+reload();
